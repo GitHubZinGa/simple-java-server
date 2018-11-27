@@ -9,7 +9,7 @@ import org.apache.commons.logging.LogFactory;
  * todo fix the main java doc
  */
 public class SimpleSample {
-    public static int DEFAULT_PORT = 9000;
+    public static int DEFAULT_PORT = 8080;
     public static int RUN_TIME = 10 * 60 * 1000;
     public static String WORKING_DIRECTORY = null;
 
@@ -28,7 +28,6 @@ public class SimpleSample {
 
         //todo allow to set custom path
         WORKING_DIRECTORY = Paths.get(".").toAbsolutePath().normalize().toString();
-        //WORKING_DIRECTORY = SimpleSample.class.getResource("index.html").getFile();
 
         Server server = new Server(DEFAULT_PORT);
         new Thread(server).start();
