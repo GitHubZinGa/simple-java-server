@@ -11,10 +11,17 @@
  * Place - Suite 330, Boston, MA  02111-1307, USA.
  */
 
-import java.io.*;
-import java.util.*;
-import java.text.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URLDecoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Hashtable;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TimeZone;
 
 public class HttpParser {
     private static final String[][] HttpReplies = {
@@ -62,7 +69,8 @@ public class HttpParser {
 
     private BufferedReader reader;
     private String method, url;
-    private Hashtable headers, params;
+    private Hashtable params;
+    private Map<String, String> headers;
     private int[] ver;
 
     public HttpParser(InputStream is) {
@@ -187,7 +195,7 @@ public class HttpParser {
             return null;
     }
 
-    public Hashtable getHeaders() {
+    public Map<String, String> getHeaders() {
         return headers;
     }
 
